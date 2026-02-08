@@ -36,7 +36,7 @@
 ## 💻 코드 구조 상세 (Core Logic)
 
 🔍 데이터 입력 및 위치 파악
-Java
+```Java
 if(map[i][j] == 0) {
     posR = i; posC = j; // 0이 위치한 좌표를 백업
 }
@@ -44,19 +44,19 @@ r[i] += map[i][j]; // 행 누적합
 c[j] += map[i][j]; // 열 누적합
 if(i == j) diag1 += map[i][j]; //  대각선1 (\)
 if(i + j == n - 1) diag2 += map[i][j]; // 대각선2 (/)
-
+```
 ⚖️ 기준 합계 도출(추론 합)
-Java
+```Java
 for(int i = 0; i < n; ++i) {
     if(i != posR) { 
         sum = r[i]; // 스톤이 없는 안전한 행의 합을 기준으로 잡음
         break;
     }
-}
+}```
 ✅ 최종 검증 로직
 추론한 합과 추론한 밸런스 스톤값을 적용하여, 나머지 모든 선들의 합이 일치하는지 전수 조사가 필요합니다.
 
-Java
+```Java
 // 밸런스 스톤 값을 적용해보고 모든 합이 일치하는지 체크
 ans = sum - r[posR];    
 c[posC] += ans; r[posR] += ans;
@@ -64,7 +64,7 @@ c[posC] += ans; r[posR] += ans;
 for(int i = 1; i < n; ++i) {
     if(r[i] != r[i-1]) ans = -1; // 행의 합 불일치 시 탈락
     if(c[i] != c[i-1]) ans = -1; // 열의 합 불일치 시 탈락
-}
+}```
 ---
 
 ⚠️ 주의 및 회고
