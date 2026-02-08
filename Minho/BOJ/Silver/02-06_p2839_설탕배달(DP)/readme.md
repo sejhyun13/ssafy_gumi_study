@@ -44,11 +44,13 @@ memo[k]: $k$ kg의 설탕을 담기 위해 필요한 최소 봉지 개수
 
 🏗️ 초기화 (Initialization)
 Java
-Arrays.fill(memo, Integer.MAX_VALUE); //봉지로 표현할 수 없으면 MAX_VALUE 처리입니다.
-memo[0] = 0; // 0kg을 배달하는 봉지 개수는 0개 (기본 사례)
+//봉지로 표현할 수 없으면 MAX_VALUE 처리입니다.
+Arrays.fill(memo, Integer.MAX_VALUE);
+// 0kg을 배달하는 봉지 개수는 0개
+memo[0] = 0;
 
 
-🔄 반복문 (Iteration)작은 무게($3$kg)부터 목표 무게($N$)까지 차례대로 최적의 값을 쌓아 나갑니다.
+🔄 반복문 (Iteration)작은 무게(`3kg`)부터 목표 무게(N)까지 차례대로 최적의 값을 쌓아 나갑니다.
 Java
 for(int i = 0; i < 5001; ++i) {
     // 1. 3kg 봉지를 추가할 수 있는 경우
